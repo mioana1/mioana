@@ -1,0 +1,634 @@
+
+┌──(kali㉿kali)-[~]
+└─$ mkdir dir1 
+//creating a directory named ''dir1''//
+
+┌──(kali㉿kali)-[~]
+└─$ ls -l                                                                                                               127 ⨯
+total 44
+-rw-r--r-- 1 kali kali   11 Jul 18 11:35 4AEM1
+drwxr-xr-x 2 kali kali 4096 Jun 26 10:59 Desktop
+drwxr-xr-x 2 kali kali 4096 Jul 19 14:05 dir1
+drwxr-xr-x 2 kali kali 4096 May 31 03:34 Documents
+drwxr-xr-x 2 kali kali 4096 May 31 03:34 Downloads
+drwxr-xr-x 2 root root 4096 Jul 19 13:58 mioana1
+drwxr-xr-x 2 kali kali 4096 May 31 03:34 Music
+drwxr-xr-x 2 kali kali 4096 May 31 03:34 Pictures
+drwxr-xr-x 2 kali kali 4096 May 31 03:34 Public
+drwxr-xr-x 2 kali kali 4096 May 31 03:34 Templates
+drwxr-xr-x 2 kali kali 4096 May 31 03:34 Videos
+//checking content and permissions in Kali user// 
+//confirmation directory named "dir1" available in content list//
+                                                                                                                              
+┌──(kali㉿kali)-[~]
+└─$ ls -l dir1
+total 0
+//checking content of dir1 directory//
+//no files available in dir1 directory//
+                                                                                                                              
+┌──(kali㉿kali)-[~]
+└─$ cd dir1 
+ //change directory from default to dir1//
+
+┌──(kali㉿kali)-[~/dir1]
+└─$ touch File1 
+//creating "File1"//
+
+┌──(kali㉿kali)-[~/dir1]
+└─$ ls -l File1
+-rw-r--r-- 1 kali kali 0 Jul 19
+//list all permissions for File1//
+
+┌──(kali㉿kali)-[~/dir1]
+└─$ pwd
+/home/kali/dir1
+//checking current directory location//
+//Print Working Directory//
+
+┌──(kali㉿kali)-[~/dir1]
+└─$ rm File1
+//delete File1//
+
+┌──(kali㉿kali)-[~/dir1]
+└─$ touch File2 
+//create File2//
+
+┌──(kali㉿kali)-[~/dir1]
+└─$ ls -l File2                                                                                                           2 ⨯
+-rw-r--r-- 1 kali kali 0 Jul 19 14:10 File2
+//checking permissions for File2//
+
+┌──(kali㉿kali)-[~/dir1]
+└─$ touch File1
+//creating again File1//
+
+┌──(kali㉿kali)-[~/dir1]
+└─$ ls -l File1                                                                                                         130 ⨯
+-rw-r--r-- 1 kali kali 0 Jul 19 14:27 File1
+//checking permissions for File1//
+
+┌──(kali㉿kali)-[~/dir1]
+└─$ ls                                                                                                                    2 ⨯
+File1  File2
+//listing content from dir1 directory//
+
+┌──(kali㉿kali)-[~/dir1]
+└─$ chmod o+rwx File2                                                                                                     1 ⨯
+//setting permissions read (r), write (w), execute (x) for others (o) in File2//
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ ls -l File2
+-rw-r--rwx 1 kali kali 0 Jul 19 14:27 File2
+//checking if permissions changed (rwx) for group 'others' (o)//
+
+┌──(kali㉿kali)-[~/dir1]
+└─$ chmod g+rwx File2                                                                                                   130 ⨯
+//setting permissions read (r), write (w), execute (x) for group (g) in File2//
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ ls -l File2
+-rw-rwxrwx 1 kali kali 0 Jul 19 14:27 File2
+//checking if permissions changed (rwx) for group 'group' (g)//
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ chmod u+rwx File2  
+//setting permissions read (r), write (w), execute (x) for user (u) in File2//
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ ls -l File2
+-rwxrwxrwx 1 kali kali 0 Jul 19 14:27 File2
+//checking if permissions changed (rwx) for group 'user' (u)//
+                                                                                                                            
+┌──(kali㉿kali)-[~/dir1]
+└─$ date
+Mon 19 Jul 2021 03:15:06 PM EDT
+//checking date from pc//
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ uptime
+ 15:15:12 up  1:25,  1 user,  load average: 0.06, 0.02, 0.00
+//checking uptime//
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ whoami
+kali
+//checking whoami//
+                                                                                                                            
+┌──(kali㉿kali)-[~/dir1]
+└─$ w     
+ 15:15:28 up  1:25,  1 user,  load average: 0.05, 0.01, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+kali     tty7     :0               13:50    1:25m 14.92s  0.29s xfce4-session
+//display who is online//                                                                                                                             
+┌──(kali㉿kali)-[~/dir1]
+└─$ cat /proc/cpuinfo
+processor       : 0
+vendor_id       : AuthenticAMD
+cpu family      : 23
+model           : 24
+model name      : AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx
+stepping        : 1
+microcode       : 0x6000626
+cpu MHz         : 2096.060
+cache size      : 512 KB
+physical id     : 0
+siblings        : 2
+core id         : 0
+cpu cores       : 2
+apicid          : 0
+initial apicid  : 0
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch ssbd vmmcall fsgsbase avx2 rdseed clflushopt arat
+bugs            : fxsave_leak sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass
+bogomips        : 4192.12
+TLB size        : 2560 4K pages
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 48 bits physical, 48 bits virtual
+power management:
+
+processor       : 1
+vendor_id       : AuthenticAMD
+cpu family      : 23
+model           : 24
+model name      : AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx
+stepping        : 1
+microcode       : 0x6000626
+cpu MHz         : 2096.060
+cache size      : 512 KB
+physical id     : 0
+siblings        : 2
+core id         : 1
+cpu cores       : 2
+apicid          : 1
+initial apicid  : 1
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch ssbd vmmcall fsgsbase avx2 rdseed clflushopt arat
+bugs            : fxsave_leak sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass
+bogomips        : 4192.12
+TLB size        : 2560 4K pages
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 48 bits physical, 48 bits virtual
+power management:
+//display cpu info//
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ cat /proc/meminfo
+MemTotal:        2030336 kB
+MemFree:         1029564 kB
+MemAvailable:    1414704 kB
+Buffers:          118124 kB
+Cached:           372884 kB
+SwapCached:            0 kB
+Active:           273748 kB
+Inactive:         574364 kB
+Active(anon):        916 kB
+Inactive(anon):   369016 kB
+Active(file):     272832 kB
+Inactive(file):   205348 kB
+Unevictable:          96 kB
+Mlocked:              96 kB
+SwapTotal:        998396 kB
+SwapFree:         998396 kB
+Dirty:                32 kB
+Writeback:             0 kB
+AnonPages:        356872 kB
+Mapped:           172796 kB
+Shmem:             12832 kB
+KReclaimable:      76872 kB
+Slab:             102608 kB
+SReclaimable:      76872 kB
+SUnreclaim:        25736 kB
+KernelStack:        4624 kB
+PageTables:         8472 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2013564 kB
+Committed_AS:    2007312 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       33088 kB
+VmallocChunk:          0 kB
+Percpu:             1128 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    163840 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      128960 kB
+DirectMap2M:     1968128 kB
+//display memory info//                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ free
+               total        used        free      shared  buff/cache   available
+Mem:         2030336      432836     1029564       12832      567936     1414760
+Swap:         998396           0      998396
+//show memory and swap usage//                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ du  
+4       .
+//show directory space usage//                                                                                                                                                         
+┌──(kali㉿kali)-[~/dir1]
+└─$ df                                                                                                                    1 ⨯
+Filesystem     1K-blocks    Used Available Use% Mounted on
+udev              979952       0    979952   0% /dev
+tmpfs             203036     936    202100   1% /run
+/dev/sda1       81000912 9793148  67047152  13% /
+tmpfs            1015168       0   1015168   0% /dev/shm
+tmpfs               5120       0      5120   0% /run/lock
+tmpfs             203032      60    202972   1% /run/user/1000
+//show disk usage//  
+                                                                                                                          
+┌──(kali㉿kali)-[~/dir1]
+└─$ uname -a
+Linux kali 5.10.0-kali7-amd64 #1 SMP Debian 5.10.28-1kali1 (2021-04-12) x86_64 GNU/Linux
+//show kernel usage// 
+                                                                                                                             
+┌──(kali㉿kali)-[~/dir1]
+└─$ ps 
+    PID TTY          TIME CMD
+   1110 pts/0    00:00:05 zsh
+   1825 pts/0    00:00:00 ps
+//display currently active processes//
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.5 163812 10380 ?        Ss   13:49   0:05 /sbin/init splash
+root           2  0.0  0.0      0     0 ?        S    13:49   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   13:49   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   13:49   0:00 [rcu_par_gp]
+root           6  0.0  0.0      0     0 ?        I<   13:49   0:00 [kworker/0:0H-events_highpri]
+root           9  0.0  0.0      0     0 ?        I<   13:49   0:00 [mm_percpu_wq]
+root          10  0.0  0.0      0     0 ?        S    13:49   0:00 [rcu_tasks_rude_]
+root          11  0.0  0.0      0     0 ?        S    13:49   0:00 [rcu_tasks_trace]
+root          12  0.0  0.0      0     0 ?        S    13:49   0:00 [ksoftirqd/0]
+root          13  0.0  0.0      0     0 ?        I    13:49   0:00 [rcu_sched]
+root          14  0.0  0.0      0     0 ?        S    13:49   0:00 [migration/0]
+root          15  0.0  0.0      0     0 ?        S    13:49   0:00 [cpuhp/0]
+root          16  0.0  0.0      0     0 ?        S    13:49   0:00 [cpuhp/1]
+root          17  0.0  0.0      0     0 ?        S    13:49   0:00 [migration/1]
+root          18  0.0  0.0      0     0 ?        S    13:49   0:00 [ksoftirqd/1]
+root          20  0.0  0.0      0     0 ?        I<   13:49   0:00 [kworker/1:0H-events_highpri]
+root          23  0.0  0.0      0     0 ?        S    13:49   0:00 [kdevtmpfs]
+root          24  0.0  0.0      0     0 ?        I<   13:49   0:00 [netns]
+root          25  0.0  0.0      0     0 ?        S    13:49   0:00 [kauditd]
+root          26  0.0  0.0      0     0 ?        S    13:49   0:00 [khungtaskd]
+root          27  0.0  0.0      0     0 ?        S    13:49   0:00 [oom_reaper]
+root          28  0.0  0.0      0     0 ?        I<   13:49   0:00 [writeback]
+root          29  0.0  0.0      0     0 ?        S    13:49   0:00 [kcompactd0]
+root          30  0.0  0.0      0     0 ?        SN   13:49   0:00 [ksmd]
+root          31  0.0  0.0      0     0 ?        SN   13:49   0:00 [khugepaged]
+root          50  0.0  0.0      0     0 ?        I<   13:49   0:00 [kintegrityd]
+root          51  0.0  0.0      0     0 ?        I<   13:49   0:00 [kblockd]
+root          52  0.0  0.0      0     0 ?        I<   13:49   0:00 [blkcg_punt_bio]
+root          53  0.0  0.0      0     0 ?        I<   13:49   0:00 [edac-poller]
+root          54  0.0  0.0      0     0 ?        I<   13:49   0:00 [devfreq_wq]
+root          55  0.0  0.0      0     0 ?        I<   13:49   0:00 [kworker/0:1H-kblockd]
+root          57  0.0  0.0      0     0 ?        S    13:49   0:00 [kswapd0]
+root          58  0.0  0.0      0     0 ?        I<   13:49   0:00 [kthrotld]
+root          59  0.0  0.0      0     0 ?        I<   13:49   0:00 [acpi_thermal_pm]
+root          60  0.0  0.0      0     0 ?        I<   13:49   0:00 [ipv6_addrconf]
+root          61  0.0  0.0      0     0 ?        I<   13:49   0:00 [kworker/1:1H-kblockd]
+root          70  0.0  0.0      0     0 ?        I<   13:49   0:00 [kstrp]
+root          73  0.0  0.0      0     0 ?        I<   13:49   0:00 [zswap-shrink]
+root          74  0.0  0.0      0     0 ?        I<   13:49   0:00 [kworker/u5:0]
+root         113  0.0  0.0      0     0 ?        I<   13:49   0:00 [ata_sff]
+root         114  0.0  0.0      0     0 ?        S    13:49   0:00 [scsi_eh_0]
+root         115  0.0  0.0      0     0 ?        I<   13:49   0:00 [scsi_tmf_0]
+root         116  0.0  0.0      0     0 ?        S    13:49   0:00 [scsi_eh_1]
+root         117  0.0  0.0      0     0 ?        I<   13:49   0:00 [scsi_tmf_1]
+root         118  0.0  0.0      0     0 ?        S    13:49   0:00 [scsi_eh_2]
+root         120  0.0  0.0      0     0 ?        I<   13:49   0:00 [scsi_tmf_2]
+root         122  0.0  0.0      0     0 ?        I<   13:49   0:00 [cryptd]
+root         124  0.0  0.0      0     0 ?        S    13:49   0:00 [irq/18-vmwgfx]
+root         127  0.0  0.0      0     0 ?        I<   13:49   0:00 [ttm_swap]
+root         129  0.0  0.0      0     0 ?        S    13:49   0:00 [card0-crtc0]
+root         131  0.0  0.0      0     0 ?        S    13:49   0:00 [card0-crtc1]
+root         133  0.0  0.0      0     0 ?        S    13:49   0:00 [card0-crtc2]
+root         135  0.0  0.0      0     0 ?        S    13:49   0:00 [card0-crtc3]
+root         138  0.0  0.0      0     0 ?        S    13:49   0:00 [card0-crtc4]
+root         140  0.0  0.0      0     0 ?        S    13:49   0:00 [card0-crtc5]
+root         142  0.0  0.0      0     0 ?        S    13:49   0:00 [card0-crtc6]
+root         144  0.0  0.0      0     0 ?        S    13:49   0:00 [card0-crtc7]
+root         236  0.0  0.0      0     0 ?        S    13:49   0:00 [jbd2/sda1-8]
+root         237  0.0  0.0      0     0 ?        I<   13:49   0:00 [ext4-rsv-conver]
+root         287  0.0  1.1  56528 23892 ?        Ss   13:49   0:00 /lib/systemd/systemd-journald
+root         293  0.0  0.0      0     0 ?        I<   13:49   0:00 [rpciod]
+root         294  0.0  0.0      0     0 ?        I<   13:49   0:00 [xprtiod]
+root         308  0.0  0.3  23076  6196 ?        Ss   13:49   0:00 /lib/systemd/systemd-udevd
+root         387  0.0  0.3   8120  6208 ?        Ss   13:49   0:00 /usr/sbin/haveged --Foreground --verbose=1
+root         444  0.0  0.1   6684  2904 ?        Ss   13:49   0:00 /usr/sbin/cron -f
+message+     445  0.0  0.2   8884  5176 ?        Ss   13:49   0:01 /usr/bin/dbus-daemon --system --address=systemd: --nofork -
+root         446  0.0  0.8 254612 16488 ?        Ssl  13:49   0:00 /usr/sbin/NetworkManager --no-daemon
+root         449  0.0  0.4 235324  9400 ?        Ssl  13:49   0:00 /usr/libexec/polkitd --no-debug
+root         450  0.0  0.2 220740  6052 ?        Ssl  13:49   0:00 /usr/sbin/rsyslogd -n -iNONE
+root         451  0.0  0.3  22016  7332 ?        Ss   13:49   0:05 /lib/systemd/systemd-logind
+root         490  0.0  0.5 314712 10636 ?        Ssl  13:49   0:00 /usr/sbin/ModemManager
+root         497  0.0  0.3 308208  7292 ?        SLsl 13:49   0:00 /usr/sbin/lightdm
+root         520  0.0  0.0   5784  1736 tty1     Ss+  13:50   0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+root         521  0.2  4.9 948212 99676 tty7     Ssl+ 13:50   0:15 /usr/lib/xorg/Xorg :0 -seat seat0 -auth /var/run/lightdm/ro
+root         530  0.0  0.1 293872  3276 ?        Sl   13:50   0:00 /usr/sbin/VBoxService
+rtkit        673  0.0  0.1 153692  3012 ?        SNsl 13:50   0:00 /usr/libexec/rtkit-daemon
+root         725  0.0  0.4 163604  8632 ?        Sl   13:50   0:00 lightdm --session-child 14 23
+kali         730  0.0  0.4  15392  8888 ?        Ss   13:50   0:00 /lib/systemd/systemd --user
+kali         731  0.0  0.1 101344  2804 ?        S    13:50   0:00 (sd-pam)
+kali         750  0.0  1.3 634188 27420 ?        S<sl 13:50   0:00 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+kali         752  0.0  0.2   8444  4976 ?        Ss   13:50   0:01 /usr/bin/dbus-daemon --session --address=systemd: --nofork 
+kali         757  0.0  1.1 268756 23020 ?        Ssl  13:50   0:00 xfce4-session
+kali         809  0.0  0.0  20124   452 ?        S    13:50   0:00 /usr/bin/VBoxClient --clipboard
+kali         811  0.0  0.2 152392  4116 ?        Sl   13:50   0:00 /usr/bin/VBoxClient --clipboard
+kali         822  0.0  0.0  20124   452 ?        S    13:50   0:00 /usr/bin/VBoxClient --seamless
+kali         823  0.0  0.1 152360  2956 ?        Sl   13:50   0:00 /usr/bin/VBoxClient --seamless
+kali         828  0.0  0.0  20124   452 ?        S    13:50   0:00 /usr/bin/VBoxClient --draganddrop
+kali         830  0.1  0.1 152876  2772 ?        Sl   13:50   0:11 /usr/bin/VBoxClient --draganddrop
+kali         835  0.0  0.0  20124   452 ?        S    13:50   0:00 /usr/bin/VBoxClient --vmsvga
+kali         836  0.0  0.1 156680  3672 ?        Sl   13:50   0:00 /usr/bin/VBoxClient --vmsvga
+kali         838  0.0  0.0   5964   464 ?        Ss   13:50   0:00 /usr/bin/ssh-agent x-session-manager
+kali         851  0.0  0.3 307264  6440 ?        Ssl  13:50   0:00 /usr/libexec/at-spi-bus-launcher
+kali         856  0.0  0.2   8172  4392 ?        S    13:50   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-s
+kali         860  0.0  0.3 229996  7756 ?        Sl   13:50   0:00 /usr/lib/x86_64-linux-gnu/xfce4/xfconf/xfconfd
+kali         865  0.0  0.3 165808  6644 ?        Sl   13:50   0:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+kali         876  0.0  0.1  81032  3492 ?        SLs  13:50   0:00 /usr/bin/gpg-agent --supervised
+kali         878  0.0  3.7 974456 76272 ?        Sl   13:50   0:02 xfwm4
+kali         881  0.0  0.4 236900  9436 ?        Ssl  13:50   0:00 /usr/libexec/gvfsd
+kali         886  0.0  0.4 379924  8128 ?        Sl   13:50   0:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f
+kali         901  0.0  1.2 229588 25656 ?        Sl   13:50   0:00 xfsettingsd
+root         904  0.0  0.5 247028 10608 ?        Ssl  13:50   0:00 /usr/libexec/upowerd
+kali         915  0.0  2.0 318292 40824 ?        Sl   13:50   0:00 xfce4-panel
+kali         919  0.0  1.1 343248 23100 ?        Sl   13:50   0:00 Thunar --daemon
+kali         924  0.0  4.7 433068 97108 ?        Sl   13:50   0:03 xfdesktop
+kali         925  0.0  2.0 316540 40740 ?        Sl   13:50   0:00 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/
+kali         930  0.0  1.1 342204 23160 ?        Sl   13:50   0:00 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/
+kali         931  0.0  1.9 509408 39888 ?        Sl   13:50   0:04 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/
+kali         932  0.0  1.7 241504 35700 ?        Sl   13:50   0:00 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/
+kali         933  0.0  1.8 241592 36644 ?        Sl   13:50   0:00 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/
+kali         934  0.0  1.8 241388 36968 ?        Sl   13:50   0:00 /usr/lib/x86_64-linux-gnu/xfce4/panel/wrapper-2.0 /usr/lib/
+kali         947  0.0  0.8 264288 17496 ?        Ssl  13:50   0:00 /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
+kali         953  0.0  1.1 194820 23016 ?        Sl   13:50   0:00 xfce4-power-manager
+kali         954  0.0  0.2 234028  4708 ?        Sl   13:50   0:00 /usr/libexec/geoclue-2.0/demos/agent
+kali         955  0.0  2.0 474548 41672 ?        Sl   13:50   0:00 nm-applet
+kali         962  0.0  0.4 855200  8800 ?        Sl   13:50   0:00 xiccd
+kali         964  0.0  1.1 268468 23628 ?        Sl   13:50   0:00 light-locker
+kali         971  0.0  0.0  16768   372 ?        Ssl  13:50   0:00 xcape -e Super_L Control_L Escape
+colord       977  0.0  0.6 242884 13116 ?        Ssl  13:50   0:00 /usr/libexec/colord
+kali         983  0.0  2.4 439352 50280 ?        Sl   13:50   0:00 /usr/bin/python3 /usr/bin/blueman-applet
+kali         990  0.0  0.8 189484 16732 ?        Sl   13:50   0:00 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
+kali         997  0.0  0.2 155880  5208 ?        Sl   13:50   0:00 /usr/libexec/dconf-service
+kali        1028  0.0  0.5 348892 11944 ?        Ssl  13:50   0:00 /usr/libexec/gvfs-udisks2-volume-monitor
+root        1033  0.0  0.6 393692 12364 ?        Ssl  13:50   0:00 /usr/libexec/udisks2/udisksd
+kali        1050  0.0  0.2 233076  6044 ?        Ssl  13:50   0:00 /usr/libexec/gvfs-goa-volume-monitor
+kali        1054  0.0  0.3 311560  7668 ?        Ssl  13:50   0:00 /usr/libexec/gvfs-afc-volume-monitor
+kali        1062  0.0  0.3 232872  8012 ?        Ssl  13:50   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+kali        1067  0.0  0.3 235108  6596 ?        Ssl  13:50   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+kali        1078  0.0  1.9 360204 40228 ?        Sl   13:50   0:00 /usr/bin/python3 /usr/bin/blueman-tray
+kali        1082  0.0  0.3  45100  6648 ?        Ss   13:50   0:00 /usr/libexec/bluetooth/obexd
+kali        1084  0.0  0.3 310984  7696 ?        Sl   13:50   0:00 /usr/libexec/gvfsd-trash --spawner :1.13 /org/gtk/gvfs/exec
+kali        1091  0.0  0.2 159324  5836 ?        Ssl  13:50   0:00 /usr/libexec/gvfsd-metadata
+kali        1107  0.2  3.8 985828 77344 ?        Rl   13:51   0:11 /usr/bin/qterminal
+kali        1110  0.0  0.3  10484  6252 pts/0    Ss   13:52   0:05 /usr/bin/zsh
+root        1555  0.0  0.0      0     0 ?        I    14:45   0:00 [kworker/0:1-events]
+root        1582  0.0  0.0      0     0 ?        I    14:51   0:00 [kworker/u4:2-events_unbound]
+root        1584  0.0  0.0      0     0 ?        I    14:51   0:00 [kworker/1:2-events]
+root        1668  0.0  0.0      0     0 ?        I    15:04   0:00 [kworker/1:0-cgroup_destroy]
+root        1761  0.0  0.0      0     0 ?        I    15:15   0:00 [kworker/u4:0-events_unbound]
+root        1785  0.0  0.0      0     0 ?        I    15:16   0:00 [kworker/0:2-ata_sff]
+root        1803  0.0  0.0      0     0 ?        I    15:21   0:00 [kworker/0:0-ata_sff]
+root        1816  0.0  0.0      0     0 ?        I    15:22   0:00 [kworker/u4:1-events_unbound]
+kali        1828  0.0  0.1   9700  3188 pts/0    R+   15:24   0:00 ps aux                         
+//detailed outputs//                                                                                                  
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ ping google.com                                                                                                       2 ⨯
+PING google.com (142.250.180.238) 56(84) bytes of data.
+64 bytes from bud02s34-in-f14.1e100.net (142.250.180.238): icmp_seq=1 ttl=117 time=23.0 ms
+64 bytes from bud02s34-in-f14.1e100.net (142.250.180.238): icmp_seq=2 ttl=117 time=22.4 ms
+64 bytes from bud02s34-in-f14.1e100.net (142.250.180.238): icmp_seq=3 ttl=117 time=22.6 ms
+64 bytes from bud02s34-in-f14.1e100.net (142.250.180.238): icmp_seq=4 ttl=117 time=22.7 ms
+64 bytes from bud02s34-in-f14.1e100.net (142.250.180.238): icmp_seq=5 ttl=117 time=22.1 ms
+64 bytes from bud02s34-in-f14.1e100.net (142.250.180.238): icmp_seq=6 ttl=117 time=23.3 ms
+64 bytes from bud02s34-in-f14.1e100.net (142.250.180.238): icmp_seq=7 ttl=117 time=23.0 ms
+64 bytes from bud02s34-in-f14.1e100.net (142.250.180.238): icmp_seq=8 ttl=117 time=23.0 ms
+64 bytes from bud02s34-in-f14.1e100.net (142.250.180.238): icmp_seq=9 ttl=117 time=22.7 ms
+64 bytes from bud02s34-in-f14.1e100.net (142.250.180.238): icmp_seq=10 ttl=117 time=22.5 ms
+^C
+--- google.com ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9013ms
+rtt min/avg/max/mdev = 22.074/22.723/23.251/0.330 ms
+//triggering and checking connection to host 'google.com'//                                                                                                                              
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ whois google.com                                                                                                      1 ⨯
+   Domain Name: GOOGLE.COM
+   Registry Domain ID: 2138514_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.markmonitor.com
+   Registrar URL: http://www.markmonitor.com
+   Updated Date: 2019-09-09T15:39:04Z
+   Creation Date: 1997-09-15T04:00:00Z
+   Registry Expiry Date: 2028-09-14T04:00:00Z
+   Registrar: MarkMonitor Inc.
+   Registrar IANA ID: 292
+   Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+   Registrar Abuse Contact Phone: +1.2083895740
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Domain Status: serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited
+   Domain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited
+   Domain Status: serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited
+   Name Server: NS1.GOOGLE.COM
+   Name Server: NS2.GOOGLE.COM
+   Name Server: NS3.GOOGLE.COM
+   Name Server: NS4.GOOGLE.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2021-07-19T19:25:18Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+Domain Name: google.com
+Registry Domain ID: 2138514_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.markmonitor.com
+Registrar URL: http://www.markmonitor.com
+Updated Date: 2019-09-09T08:39:04-0700
+Creation Date: 1997-09-15T00:00:00-0700
+Registrar Registration Expiration Date: 2028-09-13T00:00:00-0700
+Registrar: MarkMonitor, Inc.
+Registrar IANA ID: 292
+Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+Registrar Abuse Contact Phone: +1.2083895770
+Domain Status: clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)
+Domain Status: clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)
+Domain Status: clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)
+Domain Status: serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)
+Domain Status: serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)
+Domain Status: serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)
+Registrant Organization: Google LLC
+Registrant State/Province: CA
+Registrant Country: US
+Registrant Email: Select Request Email Form at https://domains.markmonitor.com/whois/google.com
+Admin Organization: Google LLC
+Admin State/Province: CA
+Admin Country: US
+Admin Email: Select Request Email Form at https://domains.markmonitor.com/whois/google.com
+Tech Organization: Google LLC
+Tech State/Province: CA
+Tech Country: US
+Tech Email: Select Request Email Form at https://domains.markmonitor.com/whois/google.com
+Name Server: ns1.google.com
+Name Server: ns4.google.com
+Name Server: ns3.google.com
+Name Server: ns2.google.com
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2021-07-19T12:18:00-0700 <<<
+
+For more information on WHOIS status codes, please visit:
+  https://www.icann.org/resources/pages/epp-status-codes
+
+If you wish to contact this domain’s Registrant, Administrative, or Technical
+contact, and such email address is not visible above, you may do so via our web
+form, pursuant to ICANN’s Temporary Specification. To verify that you are not a
+robot, please enter your email address to receive a link to a page that
+facilitates email communication with the relevant contact(s).
+
+Web-based WHOIS:
+  https://domains.markmonitor.com/whois
+
+If you have a legitimate interest in viewing the non-public WHOIS details, send
+your request and the reasons for your request to whoisrequest@markmonitor.com
+and specify the domain name in the subject line. We will review that request and
+may ask for supporting documentation and explanation.
+
+The data in MarkMonitor’s WHOIS database is provided for information purposes,
+and to assist persons in obtaining information about or related to a domain
+name’s registration record. While MarkMonitor believes the data to be accurate,
+the data is provided "as is" with no guarantee or warranties regarding its
+accuracy.
+
+By submitting a WHOIS query, you agree that you will use this data only for
+lawful purposes and that, under no circumstances will you use this data to:
+  (1) allow, enable, or otherwise support the transmission by email, telephone,
+or facsimile of mass, unsolicited, commercial advertising, or spam; or
+  (2) enable high volume, automated, or electronic processes that send queries,
+data, or email to MarkMonitor (or its systems) or the domain name contacts (or
+its systems).
+
+MarkMonitor reserves the right to modify these terms at any time.
+
+By submitting this query, you agree to abide by this policy.
+
+MarkMonitor Domain Management(TM)
+Protecting companies and consumers in a digital world.
+
+Visit MarkMonitor at https://www.markmonitor.com
+Contact us at +1.8007459229
+In Europe, at +44.02032062220
+--
+//checking more information about host 'google.com'//
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ dig domain
+
+; <<>> DiG 9.16.15-Debian <<>> domain
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 23325
+;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+; COOKIE: 7fe0551bdec51d01ef927a0060f5d783406ff523b570cf12 (good)
+;; QUESTION SECTION:
+;domain.                                IN      A
+
+;; AUTHORITY SECTION:
+.                       900     IN      SOA     a.root-servers.net. nstld.verisign-grs.com. 2021071901 1800 900 604800 86400
+
+;; Query time: 4 msec
+;; SERVER: 193.231.252.1#53(193.231.252.1)
+;; WHEN: Mon Jul 19 15:50:25 EDT 2021
+;; MSG SIZE  rcvd: 138
+//get DNS (Domain Name Server) for domain//
+                                                                                                                         
+┌──(kali㉿kali)-[~/dir1]
+└─$ wget google.com                                                                                                       4 ⨯
+--2021-07-19 15:52:18--  http://google.com/
+Resolving google.com (google.com)... 216.58.214.238, 2a00:1450:400d:803::200e
+Connecting to google.com (google.com)|216.58.214.238|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://www.google.com/ [following]
+--2021-07-19 15:52:18--  http://www.google.com/
+Resolving www.google.com (www.google.com)... 172.217.19.100, 2a00:1450:400d:804::2004
+Connecting to www.google.com (www.google.com)|172.217.19.100|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html’
+
+index.html                          [ <=>                                                  ]  14.04K  --.-KB/s    in 0.03s   
+
+2021-07-19 15:52:18 (448 KB/s) - ‘index.html’ saved [14382]
+//download file//
+                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ curl http://google.com                                                                                                6 ⨯
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>301 Moved</TITLE></HEAD><BODY>
+<H1>301 Moved</H1>
+The document has moved
+<A HREF="http://www.google.com/">here</A>.
+</BODY></HTML>
+//outputs the webpage from url//                                                                                                                              
+┌──(kali㉿kali)-[~/dir1]
+└─$ curl -o meh.html http://google.com
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   219  100   219    0     0   1251      0 --:--:-- --:--:-- --:--:--  1251
+//writes the page to meh.html//

@@ -1,0 +1,235 @@
+┌──(kali㉿kali)-[~]
+└─$ mkdir -p 4aem/dir1
+┌──(kali㉿kali)-[~]
+└─$ mkdir -p 4aem/dir2 
+//creating parent directory 4aem with dir1 and dir2 as subdirectories//
+//question: can we create multiple directories from one try?//
+
+┌──(kali㉿kali)-[~]
+└─$ cd 4aem                           
+//list all content in 4aem directory//
+                                                                                                                    
+┌──(kali㉿kali)-[~/4aem]
+└─$ cd dir1
+//list all content in dir1 subdirectory//
+
+┌──(kali㉿kali)-[~]
+└─$ touch File0 File1
+//creating File0 and File1 inside subdirectory dir1//
+
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ ls -l     
+total 4
+-rw-r--r-- 1 kali kali    0 Jul 26 14:05 0
+drwxr-xr-x 2 kali kali 4096 Jul 26 13:46 dir2
+-rw-r--r-- 1 kali kali    0 Jul 26 14:05 File
+-rw-r--r-- 1 kali kali    0 Jul 26 14:05 File1
+//list all content in dir1 subdirectory
+
+┌──(kali㉿kali)-[~]
+└─$ cd 4aem 
+//accessing parent directory 4aem//
+
+┌──(kali㉿kali)-[~/4aem]
+└─$ ls -l dir2
+total 0
+//list all content in dir2 subdirectory//
+
+┌──(kali㉿kali)-[~/4aem]
+└─$ cd dir2
+//accessing dir2 subdirectory//
+
+┌──(kali㉿kali)-[~/4aem/dir2]
+└─$ touch File0 File1
+//creating File0 and File1 in subdirectory dir2//
+
+┌──(kali㉿kali)-[~/4aem/dir2]
+└─$ ls -l                                                                                                     
+total 0
+-rw-r--r-- 1 kali kali 0 Jul 26 13:59 File0
+-rw-r--r-- 1 kali kali 0 Jul 26 13:59 File1
+//list all content in subdirectory dir2//
+
+┌──(kali㉿kali)-[~]
+└─$ cd 4aem
+//accessing parent directory 4aem//                                                                                                                   
+┌──(kali㉿kali)-[~/4aem]
+└─$ ls -a
+.  ..  dir1  dir2
+//list hidden files//   
+                                                                                                                
+┌──(kali㉿kali)-[~/4aem]
+└─$ ls -r
+dir2  dir1
+//list reverse order//  
+                                                                                                                 
+┌──(kali㉿kali)-[~/4aem]
+└─$ ls -t
+dir1  dir2
+//list new files first//    
+                                                                                                               
+┌──(kali㉿kali)-[~/4aem]
+└─$ ls -rt
+dir2  dir1
+//listreverse time (older first)//  
+
+┌──(kali㉿kali)-[~/4aem]
+└─$ cd dir1
+//accessing dir1 subdirectory//
+
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ mv File1 .File1                                                                               
+//hidding File1 with mv command//                                                                                                                   
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ ls    
+0  dir2  File
+//checking if ls will list hidden files- no hidden files shown//                                                                                                               
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ ls -a 
+.  ..  0  dir2  File  .File1
+//checking if ls -a will list hidden files- hidden files shown//
+                                                                                                                
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ pwd            
+/home/kali/4aem/dir1
+//checking current location//
+
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ touch 4aem.txt
+//creating a txt file//
+
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ ls -l
+total 4
+-rw-r--r-- 1 kali kali    0 Jul 26 14:05 0
+-rw-r--r-- 1 kali kali    0 Jul 26 14:36 4aem.txt
+drwxr-xr-x 2 kali kali 4096 Jul 26 13:46 dir2
+-rw-r--r-- 1 kali kali    0 Jul 26 14:05 File
+//checking content in subdirectory dir1//
+
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ zip --encrypt 4aem.zip 4aem.txt
+Enter password: 
+Verify password: 
+  adding: 4aem.txt (stored 0%)
+//compress txt to zip format and encrypt txt file//
+//setting password for txt file//
+
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ ls   
+0  4aem.txt  4aem.zip  dir2  File
+//checking content - if zip file available// 
+
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ sudo apt install macchanger                                                                               127 ⨯
+[sudo] password for kali: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+macchanger is already the newest version (1.7.0-5.4).
+macchanger set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 216 not upgraded.
+//installing macchanger apt//
+
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:0e:34:8d brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute eth0
+       valid_lft 80459sec preferred_lft 80459sec
+    inet6 fe80::a00:27ff:fe0e:348d/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+//checking network name - eth0 - MAC address 08:00:27:0e:34:8d//
+//checking all the available network interfaces//
+
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ sudo macchanger -r eth0    
+Current MAC:   08:00:27:0e:34:8d (CADMUS COMPUTER SYSTEMS)
+Permanent MAC: 08:00:27:0e:34:8d (CADMUS COMPUTER SYSTEMS)
+New MAC:       6a:b2:19:d4:94:e6 (unknown)
+//checking MAC address//
+//-r to get a random MAC address//
+
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 6a:b2:19:d4:94:e6 brd ff:ff:ff:ff:ff:ff permaddr 08:00:27:0e:34:8d
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute eth0
+       valid_lft 79488sec preferred_lft 79488sec
+    inet6 fe80::a00:27ff:fe0e:348d/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+//checking if MAC address changed//
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ sudo macchanger -m b2:aa:0e:56:ed:f7 eth0
+[sudo] password for kali: 
+Current MAC:   6a:b2:19:d4:94:e6 (unknown)
+Permanent MAC: 08:00:27:0e:34:8d (CADMUS COMPUTER SYSTEMS)
+New MAC:       b2:aa:0e:56:ed:f7 (unknown)
+//changing MAC address to a specific MAC address//
+//b2:aa:0e:56:ed:f7 MAC address as an example - not standard//
+
+
+┌──(kali㉿kali)-[~/4aem/dir1]
+└─$ macchanger -l
+Misc MACs:
+Num    MAC        Vendor
+---    ---        ------
+0000 - 00:00:00 - XEROX CORPORATION
+0001 - 00:00:01 - XEROX CORPORATION
+0002 - 00:00:02 - XEROX CORPORATION
+0003 - 00:00:03 - XEROX CORPORATION
+0004 - 00:00:04 - XEROX CORPORATION
+0005 - 00:00:05 - XEROX CORPORATION
+0006 - 00:00:06 - XEROX CORPORATION
+0007 - 00:00:07 - XEROX CORPORATION
+0008 - 00:00:08 - XEROX CORPORATION
+0009 - 00:00:09 - XEROX CORPORATION
+0010 - 00:00:0a - OMRON TATEISI ELECTRONICS CO.
+0011 - 00:00:0b - MATRIX CORPORATION
+0012 - 00:00:0c - CISCO SYSTEMS, INC.
+0013 - 00:00:0d - FIBRONICS LTD.
+0014 - 00:00:0e - FUJITSU LIMITED
+0015 - 00:00:0f - NEXT, INC.
+0016 - 00:00:10 - SYTEK INC.
+0017 - 00:00:11 - NORMEREL SYSTEMES
+0018 - 00:00:12 - INFORMATION TECHNOLOGY LIMITED
+0019 - 00:00:13 - CAMEX
+0020 - 00:00:14 - NETRONIX
+0021 - 00:00:15 - DATAPOINT CORPORATION
+0022 - 00:00:16 - DU PONT PIXEL SYSTEMS     .
+0023 - 00:00:17 - Oracle
+0024 - 00:00:18 - WEBSTER COMPUTER CORPORATION
+0025 - 00:00:19 - APPLIED DYNAMICS INTERNATIONAL
+0026 - 00:00:1a - ADVANCED MICRO DEVICES
+0027 - 00:00:1b - NOVELL INC.
+0028 - 00:00:1c - BELL TECHNOLOGIES
+0029 - 00:00:1d - CABLETRON SYSTEMS, INC.
+0030 - 00:00:1e - TELSIST INDUSTRIA ELECTRONICA
+0031 - 00:00:1f - Telco Systems, Inc.
+0032 - 00:00:20 - DATAINDUSTRIER DIAB AB
+0033 - 00:00:21 - SUREMAN COMP. & COMMUN. CORP.
+0034 - 00:00:22 - VISUAL TECHNOLOGY INC.
+0035 - 00:00:23 - ABB INDUSTRIAL SYSTEMS AB
+0036 - 00:00:24 - CONNECT AS
+0037 - 00:00:25 - RAMTEK CORP.
+0038 - 00:00:26 - SHA-KEN CO., LTD.
+0039 - 00:00:27 - JAPAN RADIO COMPANY
+0040 - 00:00:28 - PRODIGY SYSTEMS CORPORATION
+0041 - 00:00:29 - IMC NETWORKS CORP.
+0042 - 00:00:2a - TRW - SEDD/INP
+0043 - 00:00:2b - CRISP AUTOMATION, INC
+0044 - 00:00:2c - AUTOTOTE LIMITED
+//checking all available manufacturer name with all available MAC possibilities//
+ 
